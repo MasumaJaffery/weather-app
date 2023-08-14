@@ -43,6 +43,11 @@ input {
   align-items: center;
 }
 
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
 body {
   background-color: #4369b2;
 }
