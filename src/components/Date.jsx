@@ -5,11 +5,11 @@ const Datee = () => {
     'July', 'August', 'September', 'October', 'November', 'December',
   ];
   const currentmonth = month[date.getMonth()];
-  const displaydate = `${date.getDate()}/${currentmonth}/${date.getFullYear()}`;
-
+  const displaydate = `${currentmonth} ${date.getDate()}, ${date.getFullYear()}`;
   return (
-    <input type="text" value={displaydate} readOnly />
+    <p className="date">{displaydate}</p>
   );
 };
 
 export default Datee;
+// Happy Coding!
