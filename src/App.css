@@ -49,5 +49,20 @@ input {
 }
 
 body {
-  background-color: #4369b2;
+  background-color: #4369b2 !important;
+}
+
+.text-bg-blue {
+  width: 50%;
+  color: #fff !important;
+  background-color: #1f458b !important;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid .text-bg-blue:nth-child(even) {
+  background-color: #00205a;
 }

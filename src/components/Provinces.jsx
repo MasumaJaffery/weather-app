@@ -1,45 +1,53 @@
-/* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchIraqWeather } from '../redux/slice';
-
-// ... (imports and setup)
+import SearchFilter from './Search';
 
 const Province = () => {
   const dispatch = useDispatch();
   const weatherData = useSelector((state) => state.weather.weather);
-
+  // Search Intial AND Current State
+  const [searchInput, setSearchInput] = useState('');
+  // useEffect to display Provinces!
   useEffect(() => {
     dispatch(fetchIraqWeather());
   }, [dispatch]);
-
-  // eslint-disable-next-line no-console
-  console.log('weatherData:', weatherData); // Add this line to see the fetched data structure
+  // Search Filteration Process;
+  // eslint-disable-next-line max-len
+  const filteredWeatherData = weatherData.filter((data) => data.province.toLowerCase().includes(searchInput.toLowerCase()));
+  const handleSearchInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
 
   return (
     <div>
-      <div>
-        {weatherData && weatherData.length > 0 ? (
-          weatherData.map((data) => (
-            <div key={data.province}>
-              <h4>{data.province}</h4>
-              <p>
-                Temperature:
-                {' '}
-                {data.weather.main.temp}
-                {' '}
-                °C
-                Description:
-                {' '}
-                {data.weather.main.description}
-              </p>
+      <SearchFilter value={searchInput} onChange={handleSearchInputChange} />
+
+      <div className="grid">
+        {filteredWeatherData.length > 0 ? (
+          filteredWeatherData.map((data) => (
+            <div
+              className="card text-bg-blue"
+              style={{ height: '28vh', width: '100%' }}
+              key={data.province}
+            >
+              <img src="..." className="card-img" alt="..." />
+              <div className="card-img-overlay">
+                <h5 className="card-title">{data.province}</h5>
+                <p className="card-text">
+                  <small>
+                    {data.weather.main.temp}
+                    {' '}
+                    °C
+                  </small>
+                </p>
+              </div>
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <p>No results found.</p>
         )}
       </div>
-
     </div>
   );
 };
