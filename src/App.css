@@ -61,6 +61,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin: 1.4rem;
 }
 
 .grid .text-bg-blue:nth-child(even) {

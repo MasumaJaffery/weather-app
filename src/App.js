@@ -1,21 +1,17 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Province from './components/Provinces';
+import ProvinceDetails from './pages/detials';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Navbar />
-        <Province />
-        <Routes>
-          <Route path="/" />
-        </Routes>
-      </div>
-    </Router>
-  );
-}
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Province />} />
+      <Route path="/province/:provinceName" element={<ProvinceDetails />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
