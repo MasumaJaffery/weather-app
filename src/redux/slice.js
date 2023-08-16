@@ -1,51 +1,58 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-// API Necessities,
+
+// API Necessities
 const apiKey = 'adf059698fbebe496a37541762d23025';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-// Array of Iraqi provinces
+// Array of  with coordinatesIraqi provinces
 const iraqProvinces = [
-  'Baghdad',
-  'Basra',
-  'Nineveh',
-  'Anbar',
-  'Sulaymaniyah',
-  'Erbil',
-  'Dohuk',
-  'Karbala',
-  'Babil',
-  'Najaf',
-  'Kirkuk',
-  'Diyala',
-  'Maysan',
-  'Muthanna',
-  'Wasit',
-  'Saladin',
-  'Dhi Qar',
+  { name: 'Baghdad', lat: 33.3152, lon: 44.3661 },
+  { name: 'Basra', lat: 30.5119, lon: 47.8136 },
+  { name: 'Nineveh', lat: 36.3544, lon: 43.1432 },
+  { name: 'Anbar', lat: 33.3736, lon: 42.3639 },
+  { name: 'Sulaymaniyah', lat: 35.5649, lon: 45.4314 },
+  { name: 'Erbil', lat: 36.1928, lon: 44.0106 },
+  { name: 'Dohuk', lat: 36.8651, lon: 42.9903 },
+  { name: 'Karbala', lat: 32.6052, lon: 44.0249 },
+  { name: 'Babil', lat: 32.5045, lon: 44.4208 },
+  { name: 'Najaf', lat: 31.9988, lon: 44.3215 },
+  { name: 'Kirkuk', lat: 35.4681, lon: 44.3922 },
+  { name: 'Diyala', lat: 33.7339, lon: 45.3661 },
+  { name: 'Maysan', lat: 31.8457, lon: 47.1749 },
+  { name: 'Muthanna', lat: 29.8162, lon: 45.9404 },
+  { name: 'Wasit', lat: 32.1792, lon: 45.0382 },
+  { name: 'Saladin', lat: 34.0065, lon: 44.1456 },
+  { name: 'Dhi Qar', lat: 31.4177, lon: 46.1715 },
 ];
 
-// An asyncthunk for fetching weather data for Iraqi provinces
-const fetchIraqWeather = createAsyncThunk('weather/fetchIraqWeather', async () => {
-  const dataPromises = iraqProvinces.map(async (province) => {
-    // API Fetch by axios=> uses JS Promises to handle asynchronous operations!
-    const response = await axios.get(
-      `${baseUrl}?q=${province},IQ&appid=${apiKey}&units=metric`,
-    );
-    return response.data;
-  });
-  // Promise.all takes Array of Promises and Return single promise!
-  return Promise.all(dataPromises);
-  // Promise is JS object defines state like pending, fulfilled and rejected of async operation!
-});
+// Create an async thunk to fetch weather data for Iraqi provinces
+const fetchIraqWeather = createAsyncThunk(
+  'weather/fetchIraqWeather',
+  async () => {
+    try {
+      const weatherDataPromises = iraqProvinces.map(async (province) => {
+        const response = await fetch(`${baseUrl}?lat=${province.lat}&lon=${province.lon}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+        return { province: province.name, weather: data };
+      });
 
-// Redux Slice
+      const weatherData = await Promise.all(weatherDataPromises);
+      return weatherData;
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error fetching weather data:', error);
+      throw error;
+    }
+  },
+);
+
+// Redux Slice for Weather Data
 const weatherSlice = createSlice({
   name: 'weather',
-  initialState: [],
+  initialState: { status: 'idle', data: [] },
   reducers: {},
   extraReducers(builder) {
-    // API response
+    // Use the async thunk action as an extra reducer
     builder
       .addCase(fetchIraqWeather.pending, (state) => (
         { ...state, status: 'loading' }
@@ -58,6 +65,5 @@ const weatherSlice = createSlice({
       ));
   },
 });
-
 export default weatherSlice.reducer;
 export { fetchIraqWeather };
