@@ -76,3 +76,15 @@ body {
 .icon-size {
   font-size: 1.2rem;
 }
+
+footer {
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #00287e;
+  color: #fff;
+  position: sticky;
+  bottom: 0;
+}
