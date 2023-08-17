@@ -54,6 +54,7 @@ const ProvinceDetails = () => {
             <td>Pressure</td>
             <td>
               {provinceDetails.weather && provinceDetails.weather.main.pressure}
+              mb
             </td>
           </tr>
         </tbody>

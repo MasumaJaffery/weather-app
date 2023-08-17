@@ -67,3 +67,12 @@ body {
 .grid .text-bg-blue:nth-child(even) {
   background-color: #00205a;
 }
+
+.adjust-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-size {
+  font-size: 1.2rem;
+}

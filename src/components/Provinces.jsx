@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { BsFillBrightnessHighFill, BsFillCaretRightFill } from 'react-icons/bs';
 import { fetchIraqWeather } from '../redux/slice';
 import SearchFilter from './Search';
 
@@ -20,7 +21,8 @@ const Province = () => {
   if (weatherData === undefined) {
     return <p>Loading...</p>;
   }
-
+  // eslint-disable-next-line no-console
+  console.log(weatherData);
   // eslint-disable-next-line max-len
   const filteredWeatherData = weatherData.filter((data) => data.province.toLowerCase().includes(searchInput.toLowerCase()));
 
@@ -40,14 +42,21 @@ const Province = () => {
                 style={{ height: '28vh', width: '100%' }}
                 key={data.province}
               >
-                <img src="..." className="card-img" alt="..." />
                 <div className="card-img-overlay">
-                  <h5 className="card-title">{data.province}</h5>
+                  <div className="adjust-heading">
+                    <h5 className="card-title">{data.province}</h5>
+                    <BsFillCaretRightFill className="icon-size" />
+                  </div>
                   <p className="card-text">
                     <small>
                       {data.weather.main.temp}
                       {' '}
                       °C
+                    </small>
+                  </p>
+                  <p>
+                    <small>
+                      <BsFillBrightnessHighFill />
                     </small>
                   </p>
                 </div>
