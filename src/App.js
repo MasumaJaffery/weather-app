@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProvinceDetails from './Pages/Detials';
 import Home from './Pages/Home';
+import ProvinceDetails from './Pages/Detials';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => (
