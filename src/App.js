@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/weather-app/" element={<Home />} />
       <Route path="/province/:provinceName" element={<ProvinceDetails />} />
     </Routes>
   </Router>
