@@ -7,6 +7,7 @@ const SearchFilter = ({ value, onChange }) => (
     placeholder="Search province..."
     value={value}
     onChange={onChange}
+    className="search"
   />
 );
 

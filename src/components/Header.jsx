@@ -1,12 +1,14 @@
-import { img } from '../images/karbala-header.jpg';
+import img from '../images/karbala-header.jpg';
 
-const Header = () => {
-  <div className="card text-bg-dark">
+const Header = () => (
+  <div className="card header" style={{ height: '100%', border: 'none' }}>
     <img src={img} className="card-img" alt="..." />
-    <div className="card-img-overlay">
-      <h1 className="card-title">Iraq</h1>
+    <div className="overlay">
+      <div className="Highlight">
+        <h1>Iraq</h1>
+        <h2>Weather Forecast</h2>
+      </div>
     </div>
-  </div>;
-};
-
+  </div>
+);
 export default Header;
