@@ -56,6 +56,7 @@ const Province = () => {
                   </p>
                   <p>
                     <small>
+                      {data.weather.weather[0].description}
                       <BsFillBrightnessHighFill />
                     </small>
                   </p>
