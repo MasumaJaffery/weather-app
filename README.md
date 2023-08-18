@@ -98,6 +98,7 @@ HTML+CSS+BOOTSTRAP+REACT+REDUX+GITHUB
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Project Link](https://masumajaffery.github.io/weather-app/)
+- [Video Link](https://drive.google.com/file/d/1HX2jWjKnmAOlyV0AQKdSs0knlaVsdL1E/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
