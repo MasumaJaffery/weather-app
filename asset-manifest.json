@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/weather-app/static/css/main.73bef24d.css",
-    "main.js": "/weather-app/static/js/main.331b049b.js",
+    "main.css": "/weather-app/static/css/main.4f33219b.css",
+    "main.js": "/weather-app/static/js/main.6963890f.js",
     "static/js/787.d9312eb8.chunk.js": "/weather-app/static/js/787.d9312eb8.chunk.js",
-    "static/media/banner.png": "/weather-app/static/media/banner.53db4c4879507779241e.png",
     "static/media/karbala-header.jpg": "/weather-app/static/media/karbala-header.acb6a8abe251c1e1b596.jpg",
+    "static/media/weather.jpeg": "/weather-app/static/media/weather.b81370b5f1efcc99affd.jpeg",
     "index.html": "/weather-app/index.html",
-    "main.73bef24d.css.map": "/weather-app/static/css/main.73bef24d.css.map",
-    "main.331b049b.js.map": "/weather-app/static/js/main.331b049b.js.map",
+    "main.4f33219b.css.map": "/weather-app/static/css/main.4f33219b.css.map",
+    "main.6963890f.js.map": "/weather-app/static/js/main.6963890f.js.map",
     "787.d9312eb8.chunk.js.map": "/weather-app/static/js/787.d9312eb8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73bef24d.css",
-    "static/js/main.331b049b.js"
+    "static/css/main.4f33219b.css",
+    "static/js/main.6963890f.js"
   ]
 }
