@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchIraqWeather } from '../redux/slice';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import img from '../images/banner.png';
+import img from '../images/weather.jpeg';
 
 const ProvinceDetails = () => {
   const { provinceName } = useParams();
@@ -25,7 +25,7 @@ const ProvinceDetails = () => {
     <div>
       <Navbar />
       <div className="card text-bg-dark">
-        <img src={img} className="card-img" alt="..." />
+        <img src={img} className="card-img img-head" alt="..." />
         <div className="card-img-overlay overlay-d" />
       </div>
       <div className="table-responsive">
