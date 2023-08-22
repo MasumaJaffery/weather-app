@@ -19,19 +19,19 @@ svg {
   margin: 2%;
 }
 
-.oneN,
+.oneN {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2%;
+}
+
 .threeN {
   display: inline-flex;
-  margin-left: 2%;
   align-items: center;
 }
 
 input {
   border: none;
-}
-
-h4 {
-  text-align: center;
 }
 
 .time,
